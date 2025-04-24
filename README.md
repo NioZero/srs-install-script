@@ -17,3 +17,9 @@ You can test this script inside a docker container.
 ```
 docker run -it --rm ubuntu:latest /bin/bash
 ```
+
+Install wget
+
+```
+apt update && apt install wget -y
+```
