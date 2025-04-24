@@ -1,0 +1,14 @@
+[Unit]
+Description=Simple Realtime Server (SRS)
+After=network.target
+
+[Service]
+Type=simple
+User=srs
+Group=srs
+ExecStart=/home/srs/srs/trunk/objs/srs -c /etc/srs.conf
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
