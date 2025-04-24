@@ -4,7 +4,7 @@
 echo "-- Installing dependences..."
 
 apt update && apt upgrade -y
-apt install git build-essential ufw automake nginx apache2-utils -y
+apt install git build-essential automake nginx apache2-utils -y
 
 # Create srs user
 echo "-- Configuring srs user..."
@@ -28,5 +28,17 @@ echo "-- Configuring srs service..."
 
 # configuration files
 wget https://raw.githubusercontent.com/NioZero/srs-install-script/refs/heads/main/srs.conf -O /etc/srs.conf
+wget https://raw.githubusercontent.com/NioZero/srs-install-script/refs/heads/main/srs.service -O /etc/systemd/system/srs.service
 
-echo "-- srs server installed..."
+# configure service
+systemctl daemon-reload
+systemctl enable srs
+systemctl start srs
+
+# configure firewall rules
+ufw allow 1935/tcp
+ufw allow 1985/tcp
+ufw allow 8080/tcp
+ufw reload
+
+echo "-- srs service installed and running..."

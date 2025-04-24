@@ -18,8 +18,12 @@ You can test this script inside a docker container.
 docker run -it --rm ubuntu:latest /bin/bash
 ```
 
-Install wget
+Because this script was made for full linux system, not docker containers
+you'll need to install some stuff if you want to test the script.
 
 ```
-apt update && apt install wget -y
+apt update && apt upgrade -y
+apt install wget systemd ufw -y
 ```
+
+After that you can execute the `install-script.sh` as normal.
