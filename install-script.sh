@@ -16,8 +16,8 @@ chown -R srs:srs /home/srs
 echo "-- Cloning and compiling project..."
 sudo -u srs bash <<EOF
 cd /home/srs
-git clone https://github.com/ossrs/srs.git
-git clone https://github.com/ossrs/srs-console.git
+git clone --depth 1 --branch v5.0-r3 https://github.com/ossrs/srs.git 
+git clone --depth 1 --branch v1.0.0 https://github.com/ossrs/srs-console.git
 cd srs/trunk
 ./configure
 make
